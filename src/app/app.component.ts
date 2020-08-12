@@ -7,26 +7,24 @@ import { Point } from "src/app/models/point";
   styleUrls: ["./app.component.css"]
 })
 export class AppComponent implements OnInit, OnChanges {
-  points: Point[];
   point: Point;
-  index: number;
+  index: number = 0;
 
   ngOnChanges(changes: SimpleChanges) {}
 
   ngOnInit() {
-    this.index = 0;
-    this.points = [new Point(0), new Point(1), new Point(3)];
-    this.point = this.points[this.index];
+    this.point = new Point(this.index);
   }
 
   increment() {
     this.index = this.index + 1;
-    this.point = this.points[this.index];
+    this.point = new Point(this.index);
   }
 
   decrement() {
     this.index = this.index - 1;
-    this.point = this.points[this.index];
-    console.log("decrement = " + this.point);
+    this.point = new Point(this.index);
   }
+
+  infinitList() {}
 }
